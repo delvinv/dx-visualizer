@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>CSV Loader</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.csv-0.71.js"></script>
+		
+		<script type="text/javascript" src="js/loader.js"></script>
+	</head>
+	<body onload="loadSampleCsv(2)">
+		<div><p><h1 id="page-title"> Basic Visualization of a CSV dataset </h1></p></div>
+		<div>
+		<ul class='nav-menu'></ul>
+		<p>&nbsp;</p>
+		<p>This is a good dataset. Notice that the numbers in the Phone column are recognized as numbers and coloured accordingly.</p>
+		<form>
+			<button onclick="return false;" id="btn2">Hide Table</button>
+			<button onclick="return false;" id="btn1">Delete Table</button>
+		</form>
+		</div>
+		<div class="result">
+			<a name="tableTop"></a>	
+			<p class="table-nav"><a style="clear:both;" href="#tableBottom">Jump to bottom of Table.</a></p>
+
+      		<table id="csvtable" border="1"></table>
+      		
+      		<a name="tableBottom"></a>
+      		<p class="table-nav"><a href="#tableTop">Jump to top of Table.</a></p>
+      	</div>
+	</body>
+</html>

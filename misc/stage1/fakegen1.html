@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Fakenamegenerator Records</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.csv-0.71.js"></script>
+		
+		<script type="text/javascript" src="js/loader.js"></script>
+	</head>
+	<body onload="loadSampleCsv(4)">
+		<div><p><h1 id="page-title"> Basic Visualization of a CSV dataset </h1></p></div>
+		<div>
+		<ul class='nav-menu'></ul>
+		<p>&nbsp;</p>
+		<p>Using fakenamegenerator.com, I generated a dataset of 50000 personal records. Please wait as dataset loads, takes around 10-20 secs..</p>
+		<form>
+			<button onclick="return false;" id="btn2">Hide Table</button>
+			<button onclick="return false;" id="btn1">Delete Table</button>
+		</form>
+		<div class="tableLegend"></div>
+		</div>
+		<div class="result">
+			<a name="tableTop"></a>	
+			<p class="table-nav"><a style="clear:both;" href="#tableBottom">Jump to bottom of Table.</a></p>
+
+      		<table id="csvtable" border="1"></table>
+      		
+      		<a name="tableBottom"></a>
+      		<p class="table-nav"><a href="#tableTop">Jump to top of Table.</a></p>
+      	</div>
+	</body>
+</html>

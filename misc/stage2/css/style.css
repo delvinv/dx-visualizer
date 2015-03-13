@@ -1,0 +1,213 @@
+/*Ensure HTML5 Elements are shown in older browsers.*/
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
+
+body {
+    background-color: #545959;
+    font-family: 'Lato', sans-serif;
+    color:#fcfcfc
+}
+
+/* Title Banner*/
+div.bannerdiv{
+    display: inline-block;
+}
+div.banner{
+    font-size: 500%;
+    color: #31eaf0;
+    padding: 0px 0px 50px 50px;
+}
+div.leftbanner{
+    font-weight: 900;
+    font-style: bold;
+}
+div.rightbanner{
+    color: #e5e8e1;
+    font-weight: 100;
+    font-style: italic;
+}
+/**/
+
+/*Sidebar*/
+.sidebar{
+    padding-top: 5%;
+    float: left;
+    width: 20%;
+    overflow: auto; 
+    /*was hidden*/
+}
+
+nav {
+    overflow: hidden;
+    display: block;
+}
+
+nav > ul {
+/*    width: 100%;*/
+    margin: 0;
+    display: block;
+}
+
+nav > ul > li {
+    background-color: #708e85;
+    display: block;
+    padding: .75em 1.5em;
+    text-align: center;
+	transition: all .25s ease-in-out;
+  	-moz-transition: all .25s ease-in-out;
+  	-webkit-transition: all .25s ease-in-out;
+}
+
+nav > ul > li:hover {
+    background-color: #fff;
+    display: block;
+    padding: .75em 1.5em;
+}
+
+.activelink{
+    background-color: #000;
+}
+
+nav > ul > li > a {
+    color: #37dba5;
+    font-family: 'Montserrat';
+    text-decoration: none;
+}
+
+nav > ul > li > a:hover {
+    background-color: #ddd;
+}
+/**/
+
+/*Content*/
+.wrapper{
+    background-color: #3d3b3f;
+    width: 900px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #000;
+    border:1px solid #000;
+}
+
+.content{
+    float: left;
+    width: 75%;
+    overflow: hidden;
+    padding-left: 10px;
+}
+    .heading {
+        text-align: center;
+        font-family: 'Montserrat';
+        color: #ccff66;
+    }
+
+    .controls-section {
+        background-color: #666666;
+        box-shadow: 0 0 7px #aaa;
+        border:2px solid #444;
+        padding: 10px 5px 5px 5px;
+        margin-top: 10px;
+    }
+
+    .subsection-title {
+        text-align: center;
+        color: #ff6666;
+    }
+    .subsection-helper-text {
+        padding: 0 5px 0 5px;
+        font-family: 'Play';
+        font-size: 60%;
+        font-style: italic;
+        color: #ffff66;
+    }
+
+    #files {
+        width: 95%;
+        margin-top: 10px;
+    }
+
+    .ui-menu-item! {
+        font-size: 20%;
+    }
+
+    /* Sliders */
+    div.sliders {
+        height: 10px;
+        font-size:60%;
+        clear: both;
+        margin-right: 5px;
+        margin-left: 5px;
+        padding-right: 10px;
+    }
+
+    input.slider-vals {
+        padding-left: 5px;
+        width: 20px;
+        border:0; 
+        color:#f6931f; 
+        font-weight:bold;
+    }
+    /* */
+     .slider-label {
+        padding-top: 10px;
+     }
+
+    .jq-ui {
+        float: left;
+        width: 20%;
+        overflow: hidden;
+    }
+
+    .cp-elem, .cp-label {
+        display: inline-block;
+    }
+    .cp-label {
+        padding-top: 10px;
+        font-size: 80%;
+    }
+    .seperator {
+        color: #66ffcc;
+        background-color: #66ffcc;
+        border-color: #66ffcc;
+    }
+
+    .jq-buttons {
+        margin-top: 5px;
+        padding: 10px;
+    }
+
+    .viz {
+        float: right;
+        width: 77%;
+        
+        border: 1px solid #ff0;
+        margin-top: 25px;
+        /* Centering the viz on within the wrapper */
+            /*margin: 0 auto;    */
+        
+    }
+
+.tablestuff {
+    padding-top: 50px;
+}
+
+#csvtable{
+    width: 100%;
+    font-size: 6px;
+    overflow: scroll;
+}
+
+/**/
+
+/* Links*/
+a, a:hover {
+    color: #f4f;
+}
+/**/
+
+footer{
+    padding-top: 40px;
+    text-align: center;
+    clear: both;
+}

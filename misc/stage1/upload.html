@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>CSV Loader</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.csv-0.71.js"></script>
+		
+		<script type="text/javascript" src="js/loader.js"></script>
+	</head>
+	<body onload="uploadCsv()">
+		<div><p><h1 id="page-title"> Basic Visualization of a CSV dataset </h1></p></div>
+		<div>
+		<ul class='nav-menu'>
+		</ul>
+		<p>&nbsp;</p>
+		<p>Upload your own CSV dataset: <input id="fileInput" type="file" name="file1"></p>
+		<form class="table-effects">
+			<button onclick="return false;" id="btn2">Hide Table</button>
+			<button onclick="return false;" id="btn1">Delete Table</button>
+		</form>
+		<div class="tableLegend"></div>
+		</div>
+		<div class="result">
+			<a name="tableTop"></a>	
+			<p class="table-nav"><a class="table2" style="clear:both;" href="#tableBottom">Jump to bottom of Table.</a></p>
+
+      		<table id="csvtable" border="1"></table>
+      		
+      		<a name="tableBottom"></a>
+      		<p class="table-nav"><a class="table2" href="#tableTop">Jump to top of Table.</a></p>
+      	</div>
+	</body>
+</html>

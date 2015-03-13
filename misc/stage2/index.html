@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DX Analyser</title>
+        <!--[if lt IE 9]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.csv-0.71.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/raphael-min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+        <script type="text/javascript" src="js/jq-ui.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato|Montserrat|Play'>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="banner">
+                    <div class=" bannerdiv leftbanner">DX</div>
+                    <div class=" bannerdiv rightbanner">Analyser</div>
+                    <div class=" bannerdiv bannericon"><i class="fa fa-stethoscope"></i></div>
+                </div>
+            </header>
+            
+            <div class="sidebar">
+                <nav>
+                    <ul>
+                      <li><a href="../stage1/">Stage 1</a></li>
+                      <li class="activelink"><a href="#">Stage 2</a></li>
+                      <li><a href="../../">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <section class="content">
+                <section class="intro">
+                    <p>This implementation has been designed with HTML5, CSS3, Javascript, jQuery 1.11.</p>
+                    <p>It is therefore recommended that you use a modern web browser that supports the above technologies.</p>
+                    <p>I used Chrome and Safari for testing purposes and it has been found working in those browsers.</p>
+                    <p>Select which dataset to visualise from the dropdown box below. Then change the colours used in the visualisation and the size and placement of the viz</p>
+                    <p>Note that CSV files generated on Excel for mac cannot be loaded due to its usage of Carriage 
+                        returns instead of newline characters to denote new rows.</p>
+                </section>
+                <section class="viz-area">
+                    <section class="jq-ui">
+                        <p class="heading">Adjust Viz</p>
+                        <!-- File selection -->
+                        <section class="controls-section dataset-loader">
+                            <div class="subsection-title">Load file</div>
+                            <div class="subsection-helper-text">Sample small and large datasets are shown here. Load times can be checked in the chrome developer console.</div>
+                            <section class="select-dataset">
+                                <label for="files">Select a file</label>
+                                <select name="files" id="files">
+                                  <optgroup label="Simple">
+                                    <option value="jquery">File A (100 rows)</option>
+                                    <option value="jquery">File B (300 rows)</option>
+                                  </optgroup>
+                                  <optgroup label="Large dataset (~10,000 rows)">
+                                    <option value="somefile">Md-good</option>
+                                    <option value="someotherfile">Md-bad</option>
+                                    <option value="sample2">Sample2</option>
+                                  </optgroup>
+                                </select>
+                            </section>
+                        </section> 
+                        <!-- Change colors for the entities -->
+                        <section class="controls-section color-changer">
+                            <div class="subsection-title" id="color-changer-title">Modify Colors</div>
+                            <div class="subsection-helper-text">Choose colors used to represent phone #'s, 
+                                email addresses and missing text etc.</div>
+                            <section class="cp-sec value-string-color">
+                                <input class="cp-elem" type="color" id="chd" value="#00ffff">
+                                <div class="cp-label" id="string-color-text"> Default</div>
+                            </section>
+                            <section class="cp-sec value-email-color">
+                                <input class="cp-elem" type="color" id="che" value="#00ff00">
+                                <div class="cp-label" id="email-color-text"> Email</div>
+                            </section>
+                            <section class="cp-sec value-phone-color">
+                                <input class="cp-elem" type="color" id="chp" value="#ff0000">   
+                                <div class="cp-label" id="phone-color-text"> Phone</div>
+                            </section>
+                            <section class="cp-sec value-missing-color">
+                                <input class="cp-elem" type="color" id="chm" value="#000000"> 
+                                <div class="cp-label" id="missing-color-text"> Missing</div>
+                            </section>
+                            <hr class="seperator" width="50%">
+                            <div class="subsection-helper-text">Seperator divides groups of 10 rows.</div>
+                            <section class="cp-sec value-line-color">
+                                <input class="cp-elem" type="color" id="chl" value="#0000ff"> 
+                                <div class="cp-label" id="line-color-text"> Seperator</div>
+                            </section>
+                            <section class="cp-sec value-bg-color">
+                                <input class="cp-elem" type="color" id="chb" value="#3d3b3f"> 
+                                <div class="cp-label" id="bg-color-text"> Background</div>
+                            </section>
+                        </section>
+                        <section class="controls-section sliders-controls">
+                            <div class="subsection-title">Positioning</div>
+                            <div class="subsection-helper-text">Width and height of the viz can be set here. Padding controls the offset from the top-left corner.</div>
+                            <!-- X-Size -->
+                            <section class="sliders-container">
+                                <div class="slider-label">
+                                  <label for="amt-xscale">X-Size:</label>
+                                  <input class="slider-vals" type="text" id="amt-xscale" readonly>
+                                </div>
+                                <div class="sliders" id="div-xscale"> </div>
+                            </section>     
+                            <!-- Y-Size -->
+                            <section class="sliders-container">
+                                <div class="slider-label">
+                                  <label for="amt-yscale">Y-Size:</label>
+                                  <input class="slider-vals" type="text" id="amt-yscale" readonly>
+                                </div>
+                                <div class="sliders" id="div-yscale"> </div>
+                            </section>
+                            <!-- X-Padding -->
+                            <section class="sliders-container">
+                                <div class="slider-label">
+                                  <label for="amt-xpadding">X-Padding:</label>
+                                  <input class="slider-vals" type="text" id="amt-xpadding" readonly>
+                                </div>
+                                <div class="sliders" id="div-xpadding"> </div>
+                            </section>     
+                            <!-- Y-Padding -->
+                            <section class="sliders-container">
+                                <div class="slider-label">
+                                  <label for="amt-ypadding">Y-Padding:</label>
+                                  <input class="slider-vals" type="text" id="amt-ypadding" readonly>
+                                </div>
+                                <div class="sliders" id="div-ypadding"> </div>
+                            </section>
+                        </section>
+                        
+                        <!-- Buttons -->
+                        <section class="jq-buttons">
+                            <div class="subsection-helper-text">Clear the canvas or redraw the viz using these controls.</div>
+                            <input type="button" value="Draw" id="btnDraw">
+                            <input type="button" value="Clear" id="btnClear">
+                        </section>
+                    <div class="subsection-helper-text">The contents of the dataset are shown in the html table below.</div>
+                    </section>
+
+                    <section class="viz" id="raphaelviz">
+                        <!-- Viz generated in main.js -->
+                    </section>
+                </section>
+
+                <section class="tablestuff">
+                    <table id="csvtable" border="1"></table>
+                </section>
+            </section>
+            
+            <footer>
+            	<p>&copy; 2015 Delvin Varghese.</p>
+            </footer>
+        </div>
+    </body>
+</html>

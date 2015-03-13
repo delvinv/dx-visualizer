@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Bad Dataset</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.csv-0.71.js"></script>
+		
+		<script type="text/javascript" src="js/loader.js"></script>
+	</head>
+	<body onload="loadSampleCsv(3)">
+		<div><p><h1 id="page-title"> Basic Visualization of a CSV dataset </h1></p></div>
+		<div>
+		<ul class='nav-menu'></ul>
+		<p>&nbsp;</p>
+		<p>This is a poor dataset. Numbers do not conform to the simple regex pattern (9 or more continuous digits) and are thus are not recognized as Integers.</p>
+		<form class="table-effects">
+			<button onclick="return false;" id="btn2">Hide Table</button>
+			<button onclick="return false;" id="btn1">Delete Table</button>
+		</form>
+		<div class="tableLegend"></div>		
+		</div>
+		<div class="result">
+			<a name="tableTop"></a>	
+			<p><a style="clear:both;" href="#tableBottom">Jump to bottom of Table.</a></p>
+
+      		<table id="csvtable" border="1"></table>
+      		
+      		<a name="tableBottom"></a>
+      		<p><a href="#tableTop">Jump to top of Table.</a></p>
+      	</div>
+	</body>
+</html>
