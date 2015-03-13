@@ -5,7 +5,7 @@ A visualization tool that will generate a summary visualization of a dataset.
 The visualization can read in csv (and eventually xls/xlsx file).
 I will be programming this using Processing.org + Java.
 
-The viz will show the following infor:
+The viz will show the following info:
 - Health of the dataset (does it contain missing entries/rows)
 - Entries that fail data validation (can be set for each column)
 - Summary graphical visualization that will show the 'health' of the dataset at a glance.
